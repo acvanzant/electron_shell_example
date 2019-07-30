@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "main": "dist/main/main.js",
     "scripts": {
-        "electron" : "tsc && copyfiles brwowser/**/*.html browser/**/*.css dist/ && electron ."
-      },
+        "electron": "tsc && copyfiles -u 1 src/browser/**/*.html dist/ && electron ."
+    },
     "build": {
         "appId": "edu.ua.caps.electron-shell",
         "copyright": "Copyright © 2019, Center for Advanced Public Safety",

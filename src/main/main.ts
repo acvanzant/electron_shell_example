@@ -17,7 +17,10 @@ function createWindow() {
       webPreferences: 
       { 
         nodeIntegration: false, 
-        contextIsolation: true,
+        ////These don't allow access to the window.Bridge object. 
+        ////Will have to use window.addEventListener in preload.ts and browserts.
+        //contextIsolation: true,
+        //sandbox: true,
         preload: path.join(__dirname, "../renderer/preload.js") 
       }
     });
