@@ -9,3 +9,4 @@ https://electronjs.org/docs/tutorial/security
 
 npm install
 npm run electron
+
