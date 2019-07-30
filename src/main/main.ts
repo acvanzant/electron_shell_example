@@ -32,8 +32,8 @@ function createWindow() {
   view.setBounds({x: 0, y: 40, width: 800, height: 590});
   view.setAutoResize({width: true, height: true});  
   view.webContents.openDevTools({mode: 'bottom'});
-  //view.webContents.loadURL("https://examiners.caps.ua.edu/client");
-  view.webContents.loadURL(`file://${__dirname}/../test/test.html`);
+  view.webContents.loadURL("https://maps.google.com");
+  //view.webContents.loadURL(`file://${__dirname}/../test/test.html`);
 
   tabList.push({
     title: view.webContents.getTitle(),
@@ -46,6 +46,8 @@ function createWindow() {
     .fromPartition('')
     .setPermissionRequestHandler((webContents, permission, callback) => 
     {
+      console.log(permission);
+      dialog.showMessageBox({message: `${webContents.getURL()} requested permission for ${permission}. Denied.`});
       //TODO Prompt, etc.
       callback(false);
     });

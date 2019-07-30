@@ -1,7 +1,10 @@
 {
     "name": "electron-shell",
     "version": "1.0.0",
-    "main": "dist/main/main.js",    
+    "main": "dist/main/main.js",
+    "scripts": {
+        "electron" : "tsc && copyfiles brwowser/**/*.html browser/**/*.css dist/ && electron ."
+      },
     "build": {
         "appId": "edu.ua.caps.electron-shell",
         "copyright": "Copyright © 2019, Center for Advanced Public Safety",
@@ -47,6 +50,7 @@
     },
     "devDependencies": {
         "@types/node": "~6.0.60",
+        "copyfiles": "^2.1.1",
         "electron": "^5.0.8",
         "tslint": "~5.9.1",
         "typescript": "^2.1.6",
