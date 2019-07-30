@@ -1,0 +1,58 @@
+{
+    "name": "electron-shell",
+    "version": "1.0.0",
+    "main": "dist/main/main.js",    
+    "build": {
+        "appId": "edu.ua.caps.electron-shell",
+        "copyright": "Copyright © 2019, Center for Advanced Public Safety",
+        "productName": "electron-shell",
+        "electronVersion": "5.0.2",
+        "asar": true,
+        "files": [
+            "dist/**/*.js",
+            "dist/**/*.html"
+        ],
+        "directories": {
+            "output": "releases"
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "portable"
+            ],
+            "publish": {
+                "provider": "s3",
+                "bucket": "electron-shell",
+                "endpoint": "https://minioserver.caps.ua.edu/",
+                "path": "dev_releases",
+                "channel": "dev",
+                "region": "us-east-2"
+            },
+            "icon": ""
+        },
+        "nsis": {
+            "artifactName": "${productName}_Setup_${version}.${ext}",
+            "perMachine": true,
+            "oneClick": false,
+            "createStartMenuShortcut": true,
+            "deleteAppDataOnUninstall": true,
+            "createDesktopShortcut": true,
+            "allowElevation": true,
+            "allowToChangeInstallationDirectory": false
+        },
+        "releaseInfo": {
+            "releaseName": "electron-shell",
+            "releaseNotesFile": "release-notes.md"
+        }
+    },
+    "devDependencies": {
+        "@types/node": "~6.0.60",
+        "electron": "^5.0.8",
+        "tslint": "~5.9.1",
+        "typescript": "^2.1.6",
+        "webpack": "^4.38.0"
+    },
+    "dependencies": {
+        "path": "^0.12.7"
+    }
+}
